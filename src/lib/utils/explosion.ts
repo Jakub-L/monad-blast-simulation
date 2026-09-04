@@ -34,6 +34,16 @@ export class Explosion {
   /** The maximum distance for explosion effects. */
   private _blastMaxRadius: number;
 
+  /**
+   * Creates a new explosion.
+   * @param options - The options for creating the explosion.
+   * @param options.origin - The origin point of the explosion.
+   * @param options.damageValue - The amount of damage dealt by the explosion.
+   * @param options.damageType - The type of damage dealt by the explosion.
+   * @param options.armorPiercing - The amount of armor piercing of the explosion. Positive values improve barrier armor.
+   * @param options.blastDecay - The change in damage per metre. Zero means damage stays constant.
+   * @param options.blastMaxRadius - The maximum distance for explosion effects.
+   */
   constructor(options: ExplosionOptions) {
     this._origin = options.origin;
     this._damageValue = options.damageValue;
@@ -43,6 +53,10 @@ export class Explosion {
     this._blastMaxRadius = options.blastMaxRadius;
   }
 
+  /**
+   * Deeply clones the explosion, with new ID.
+   * @returns A new explosion with the same options and a new id.
+   */
   clone(): Explosion {
     return new Explosion({
       origin: this._origin,
