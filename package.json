@@ -22,7 +22,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "type": "commonjs",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
