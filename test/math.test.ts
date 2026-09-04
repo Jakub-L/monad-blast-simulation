@@ -1,6 +1,56 @@
 import { describe, expect, test } from 'vitest';
 
-import { reflect } from '../src/lib/utils/math';
+import { intersect, reflect } from '../src/lib/utils/math';
+import { Vector } from '../src/lib/utils/vector';
+
+describe('intersect', () => {
+  const source = { x: 0, y: 0 };
+  const direction = new Vector(1, 0);
+
+  test('should return the intersection point and distance', () => {
+    expect(
+      intersect(source, direction, {
+        start: { x: 2, y: -1 },
+        end: { x: 2, y: 1 }
+      })
+    ).toEqual({
+      point: { x: 2, y: 0 },
+      distance: 2
+    });
+  });
+  test('should return null for a ray parallel to the segment', () => {
+    expect(
+      intersect(source, direction, {
+        start: { x: 1, y: 1 },
+        end: { x: 2, y: 1 }
+      })
+    ).toBeNull();
+  });
+  test('should return null when the intersection is behind the source', () => {
+    expect(
+      intersect(source, direction, {
+        start: { x: -2, y: -1 },
+        end: { x: -2, y: 1 }
+      })
+    ).toBeNull();
+  });
+  test('should return null when the intersection is before the segment start', () => {
+    expect(
+      intersect(source, direction, {
+        start: { x: 2, y: 1 },
+        end: { x: 2, y: 2 }
+      })
+    ).toBeNull();
+  });
+  test('should return null when the intersection is after the segment end', () => {
+    expect(
+      intersect(source, direction, {
+        start: { x: 2, y: -2 },
+        end: { x: 2, y: -1 }
+      })
+    ).toBeNull();
+  });
+});
 
 describe('reflect', () => {
   test('should return deep copy of original point', () => {

@@ -12,3 +12,11 @@ export type Point = {
   /** The y coordinate of the point */
   y: number;
 };
+
+/** A line segment in 2D euclidean space */
+export type Segment = {
+  /** The start point of the segment. */
+  start: Point;
+  /** The end point of the segment. */
+  end: Point;
+};
