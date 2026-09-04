@@ -1,7 +1,7 @@
 {
   "name": "monad-blast-library",
   "version": "1.0.0",
-  "description": "",
+  "description": "A library behind Monad//Blast's explosion simulation",
   "main": "index.js",
   "exports": {
     ".": {
@@ -20,8 +20,19 @@
     "test": "vitest",
     "test:coverage": "vitest run --coverage"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "typescript",
+    "library",
+    "explosion",
+    "blast",
+    "simulation",
+    "shadowrun"
+  ],
+  "author": {
+    "name": "Jakub L.",
+    "email": "contact@fatman.dev",
+    "url": "https://fatman.dev/"
+  },
   "license": "GPL-3.0",
   "type": "commonjs",
   "devDependencies": {
