@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
 
-import { getTestHits } from '../src/lib/utils/dice';
+import { d6, getTestHits } from '../src/lib/utils/dice';
 
 describe('getTestHits', () => {
   test('should return 0 for a pool of 0', () => {
@@ -25,5 +25,13 @@ describe('getTestHits', () => {
       return vi.fn(() => ++count);
     };
     expect(getTestHits(6, roller())).toBe(2);
+  });
+});
+
+describe('d6', () => {
+  test('should return a random integer from 1 to 6', () => {
+    vi.spyOn(Math, 'random').mockReturnValue(0.5);
+    expect(d6()).toBe(4);
+    vi.restoreAllMocks();
   });
 });

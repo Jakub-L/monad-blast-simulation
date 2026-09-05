@@ -1,7 +1,7 @@
 /** Rolls a six-sided die and returns the result.
  * @returns Random integer from 1 to 6
  */
-const d6 = (): number => {
+export const d6 = (): number => {
   return Math.floor(Math.random() * 6) + 1;
 };
 
