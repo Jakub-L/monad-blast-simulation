@@ -1,7 +1,27 @@
 import { describe, expect, test } from 'vitest';
 
-import { intersect, reflect } from '@/utils/math';
+import { cellDistance, intersect, reflect } from '@/utils/math';
 import { Vector } from '@/utils/vector';
+
+describe('cellDistance', () => {
+  test('should return zero for a point in the same cell', () => {
+    expect(cellDistance({ x: 1.25, y: -2.75 }, { x: 1.9, y: -2.1 })).toBe(0);
+  });
+
+  test('should measure distance to the nearest cell edge', () => {
+    const cell = { x: 1.25, y: -2.75 };
+    expect(cellDistance(cell, { x: 3, y: -2.25 })).toBe(1);
+    expect(cellDistance(cell, { x: -1, y: -2.25 })).toBe(2);
+    expect(cellDistance(cell, { x: 1.5, y: 0 })).toBe(2);
+    expect(cellDistance(cell, { x: 1.5, y: -5 })).toBe(2);
+  });
+
+  test('should measure diagonal distance to the cell', () => {
+    expect(cellDistance({ x: 1.25, y: -2.75 }, { x: 3, y: 0 })).toBe(
+      Math.sqrt(5)
+    );
+  });
+});
 
 describe('intersect', () => {
   const source = { x: 0, y: 0 };

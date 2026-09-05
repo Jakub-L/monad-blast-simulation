@@ -3,6 +3,20 @@ import { Vector } from '@/utils/vector';
 import { EPSILON } from '@/constants';
 
 /**
+ * Calculates the shortest Euclidean distance from point B to the nearest point of point A's cell. This assumes a point fills its entire 1 m × 1 m cell, so a point on or inside the cell is 0 m away. This is useful for calculating distances from explosions, which take up entirety of grid cells.
+ * @param a - The first point
+ * @param b - The second point
+ * @returns The distance from the second point to the nearest point of the first point's cell
+ */
+export const cellDistance = (a: Point, b: Point): number => {
+  const cellX = Math.floor(a.x);
+  const cellY = Math.floor(a.y);
+  const dx = Math.max(cellX - b.x, b.x - cellX - 1, 0);
+  const dy = Math.max(cellY - b.y, b.y - cellY - 1, 0);
+  return Math.hypot(dx, dy);
+};
+
+/**
  * Finds the intersection of a ray and a segment.
  *
  * We can define the ray as r(t) = E + t*N, where:
