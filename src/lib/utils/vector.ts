@@ -91,6 +91,14 @@ export class Vector {
     return this._x * v.y - this._y * v.x;
   }
 
+  /**
+   * Converts this vector to a point.
+   * @returns A new point with the same x and y components as this vector
+   */
+  toPoint(): Point {
+    return { x: this._x, y: this._y };
+  }
+
   // GETTERS
   /** The x component. */
   get x(): number {

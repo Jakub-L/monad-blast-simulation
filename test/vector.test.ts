@@ -53,7 +53,7 @@ describe('Vector', () => {
   });
 
   test('should add another vector', () => {
-    const vector = new Vector(2, -3); 
+    const vector = new Vector(2, -3);
     const result = vector.add(new Vector(4, 5));
     expect(result).not.toBe(vector);
     expect(result.x).toBe(6);
@@ -91,6 +91,10 @@ describe('Vector', () => {
 
   test('should calculate the cross product', () => {
     expect(new Vector(2, 3).cross(new Vector(4, -1))).toBe(-14);
+  });
+
+  test('should convert to a point', () => {
+    expect(new Vector(-2, 5).toPoint()).toEqual({ x: -2, y: 5 });
   });
 
   test('should create a vector from one point to another', () => {
