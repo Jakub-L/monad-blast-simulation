@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'vitest';
 
-import { Vector } from '../src/lib/utils/vector';
+import { Vector } from '@/utils/vector';
 
 describe('Vector', () => {
   test('should create a vector from a point', () => {

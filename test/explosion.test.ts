@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 
-import { DamageType } from '../src/lib/types';
-import { Explosion } from '../src/lib/utils/explosion';
+import { DamageType } from '@/types';
+import { Explosion } from '@/utils/explosion';
 
 describe('Explosion', () => {
   const options = {

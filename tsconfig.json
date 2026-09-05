@@ -3,6 +3,10 @@
     "target": "esnext",
     "module": "nodenext",
     "moduleResolution": "nodenext",
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/lib/*"]
+    },
     "strict": true,
     "declaration": true,
     "declarationMap": true,
@@ -12,5 +16,5 @@
     "skipLibCheck": true,
     "ignoreDeprecations": "6.0"
   },
-  "include": ["src"]
+  "include": ["src", "test"]
 }

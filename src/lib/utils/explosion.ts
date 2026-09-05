@@ -1,5 +1,5 @@
-import type { Point } from '../types';
-import { DamageType } from '../types';
+import type { Point } from '@/types';
+import { DamageType } from '@/types';
 
 /** Options for creating an explosion. */
 type ExplosionOptions = {

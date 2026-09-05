@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 
-import { intersect, reflect } from '../src/lib/utils/math';
-import { Vector } from '../src/lib/utils/vector';
+import { intersect, reflect } from '@/utils/math';
+import { Vector } from '@/utils/vector';
 
 describe('intersect', () => {
   const source = { x: 0, y: 0 };

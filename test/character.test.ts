@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 
-import { DamageType } from '../src/lib/types';
-import { Character } from '../src/lib/utils/character';
+import { DamageType } from '@/types';
+import { Character } from '@/utils/character';
 
 describe('Character', () => {
   const origin = { x: 2, y: -3 };

@@ -1,6 +1,6 @@
 import { describe, expect, test, vi } from 'vitest';
 
-import { d6, getTestHits } from '../src/lib/utils/dice';
+import { d6, getTestHits } from '@/utils/dice';
 
 describe('getTestHits', () => {
   test('should return 0 for a pool of 0', () => {

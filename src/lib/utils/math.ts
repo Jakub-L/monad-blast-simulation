@@ -1,6 +1,6 @@
-import type { Point, Segment } from '../types';
-import { Vector } from './vector';
-import { EPSILON } from '../constants';
+import type { Point, Segment } from '@/types';
+import { Vector } from '@/utils/vector';
+import { EPSILON } from '@/constants';
 
 /**
  * Finds the intersection of a ray and a segment.
