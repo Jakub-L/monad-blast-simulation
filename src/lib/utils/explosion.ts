@@ -1,5 +1,4 @@
-import type { Point } from '@/types';
-import { DamageType } from '@/types';
+import type { DamageType, Point } from '@/types';
 
 /** Options for creating an explosion. */
 type ExplosionOptions = {
@@ -119,5 +118,10 @@ export class Explosion {
   /** The maximum distance for explosion effects. */
   get maxRadius(): number {
     return this._blastMaxRadius;
+  }
+
+  /** Whether the explosion is valid. It must deal at least 1 damage and have a non-positive blast decay (this would mean damage increases with distance and give the blast infinite range) */
+  get isValid(): boolean {
+    return this._damageValue >= 1 && this._blastDecay <= 0;
   }
 }

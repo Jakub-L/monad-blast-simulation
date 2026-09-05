@@ -53,6 +53,34 @@ describe('Explosion', () => {
     expect(explosion.damageAtDistance(10.1)).toBe(0);
   });
 
+  test('should be valid with positive damage and non-positive decay', () => {
+    expect(new Explosion(options).isValid).toBe(true);
+    expect(
+      new Explosion({
+        ...options,
+        blastDecay: -3
+      }).isValid
+    ).toBe(true);
+  });
+
+  test('should be invalid with less than 1 damage', () => {
+    expect(
+      new Explosion({
+        ...options,
+        damageValue: 0
+      }).isValid
+    ).toBe(false);
+  });
+
+  test('should be invalid with positive decay', () => {
+    expect(
+      new Explosion({
+        ...options,
+        blastDecay: 1
+      }).isValid
+    ).toBe(false);
+  });
+
   test('should apply decay and clamp damage at zero', () => {
     const explosion = new Explosion({
       ...options,
@@ -64,7 +92,7 @@ describe('Explosion', () => {
     expect(explosion.damageAtDistance(75)).toBe(0);
   });
 
-  test("should step damage for full distance units", () => {
+  test('should step damage for full distance units', () => {
     const explosion = new Explosion({
       ...options,
       blastDecay: -3,
@@ -73,5 +101,5 @@ describe('Explosion', () => {
     expect(explosion.damageAtDistance(0)).toBe(40);
     expect(explosion.damageAtDistance(0.9)).toBe(40);
     expect(explosion.damageAtDistance(1)).toBe(37);
-  })
+  });
 });
