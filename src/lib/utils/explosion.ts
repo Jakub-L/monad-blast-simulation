@@ -1,7 +1,7 @@
 import type { DamageType, Point } from '@/types';
 
 /** Options for creating an explosion. */
-type ExplosionOptions = {
+export type ExplosionOptions = {
   /** The origin point of the explosion. */
   origin: Point;
   /** The amount of damage dealt by the explosion. */
