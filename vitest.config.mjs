@@ -6,5 +6,8 @@ export default defineConfig({
     alias: {
       '@': resolve('src/lib')
     }
+  },
+  coverage: {
+    include: ['src/**/*.ts']
   }
 });
